@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dikshant Pargai</title>
+<meta name="description" content="Dikshant Pargai: B.Tech CSE (AI & ML) student at UPES building machine learning and LLM projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  /* Layout: one narrow reading column, left-aligned, sections separated by thin rules. */
+  :root {
+    --bg: #f3f5f8;
+    --surface: #ffffff;
+    --ink: #121821;
+    --muted: #5a6575;
+    --line: #dde2ea;
+    --accent: #1d4ed8;
+    --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e131b;
+      --surface: #151c27;
+      --ink: #e8edf4;
+      --muted: #9aa6b6;
+      --line: #263142;
+      --accent: #7ea2ff;
+      color-scheme: dark;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
+  .logo { font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--ink); text-decoration: none; }
+  nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; }
+  nav ul a { color: var(--muted); text-decoration: none; font-size: 16px; }
+  nav ul a:hover { color: var(--ink); }
+  @media (max-width: 560px) { nav ul { gap: 14px; } nav ul li.hide-sm { display: none; } }
+
+  /* Hero */
+  header.hero { padding: 72px 0 56px; }
+  .status {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 13px; color: var(--muted);
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; background: var(--surface);
+  }
+  .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #16a34a; }
+  h1 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(44px, 8vw, 76px); line-height: 1.02; letter-spacing: -0.02em;
+    margin: 20px 0 16px; text-wrap: balance;
+  }
+  .lede { font-size: 21px; color: var(--muted); max-width: 60ch; margin: 0 0 28px; }
+  .lede strong { color: var(--ink); font-weight: 600; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 11px 20px; border-radius: 8px;
+    font-weight: 600; font-size: 16px; text-decoration: none;
+    border: 1px solid var(--line); color: var(--ink); background: var(--surface);
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #0e131b; } }
+  .btn:hover { filter: brightness(1.06); }
+
+  /* Sections */
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 {
+    font-family: var(--font-display); font-weight: 700; font-size: 30px;
+    margin: 0 0 28px; letter-spacing: -0.01em;
+  }
+  h3 { font-family: var(--font-display); font-weight: 500; font-size: 22px; margin: 0; line-height: 1.25; text-wrap: balance; }
+
+  /* Projects */
+  .projects { display: grid; gap: 18px; }
+  .project {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 24px; display: grid; gap: 10px;
+  }
+  .project.featured { border-left: 4px solid var(--accent); }
+  .spec { font-family: var(--font-mono); font-size: 13px; color: var(--accent); margin: 0; }
+  .project p { margin: 0; color: var(--muted); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 0; padding: 0; list-style: none; }
+  .tags li {
+    font-size: 14px; padding: 2px 10px; border-radius: 6px;
+    background: color-mix(in srgb, var(--accent) 10%, var(--surface)); color: var(--ink);
+  }
+
+  /* Experience */
+  .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; }
+  .timeline li { display: grid; grid-template-columns: 150px 1fr; gap: 20px; }
+  .when { font-family: var(--font-mono); font-size: 14px; color: var(--muted); padding-top: 4px; }
+  .timeline .org { color: var(--muted); font-size: 16px; margin: 2px 0 6px; }
+  .timeline p { margin: 0; }
+  @media (max-width: 600px) { .timeline li { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
+  .skills h3 { font-size: 17px; font-family: var(--font-body); font-weight: 600; margin-bottom: 8px; }
+  .skills p { margin: 0; color: var(--muted); }
+
+  /* Education */
+  .edu { display: grid; gap: 28px; }
+  .edu-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; align-items: baseline; }
+  .cgpa { font-family: var(--font-mono); font-size: 15px; color: var(--muted); }
+  .certs { margin: 0; padding-left: 20px; color: var(--muted); }
+  .certs li { margin-bottom: 4px; }
+
+  /* Contact */
+  .contact p { max-width: 55ch; color: var(--muted); margin: 0 0 24px; }
+  .contact-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .contact-list li { display: grid; grid-template-columns: 90px 1fr; gap: 12px; }
+  .contact-list span { color: var(--muted); font-size: 16px; }
+  .contact-list a { word-break: break-all; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 15px; }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top">Dikshant Pargai</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li class="hide-sm"><a href="#experience">Experience</a></li>
+      <li class="hide-sm"><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top" class="wrap">
+
+  <header class="hero">
+    <span class="status">Open to AI/ML and software roles</span>
+    <h1>Dikshant Pargai</h1>
+    <p class="lede">I'm a final-year <strong>B.Tech CSE (Artificial Intelligence &amp; Machine Learning)</strong> student at UPES, Dehradun. I build machine learning models and the tooling around them, from vision transformers to LLM evaluation pipelines.</p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn" href="https://github.com/Dikshant150">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/dikshant-pargai-616262306">LinkedIn</a>
+    </div>
+  </header>
+
+  <section id="projects" aria-labelledby="projects-h">
+    <h2 id="projects-h">Projects</h2>
+    <div class="projects">
+
+      <article class="project featured">
+        <p class="spec">Llama 3.1 8B · FP16 / INT8 / INT4 · TriviaQA</p>
+        <h3>QuantProbe: hallucination detection in quantized LLMs</h3>
+        <p>A PyTorch and Hugging Face pipeline that runs Llama 3.1 8B Instruct at three precisions and saves hidden states from every layer at four token positions. Answers are graded as correct, incorrect or abstained, with manual review and a measured label-noise rate, to train probes that flag hallucinated answers.</p>
+        <ul class="tags"><li>PyTorch</li><li>Hugging Face</li><li>bitsandbytes</li><li>LLM evaluation</li></ul>
+      </article>
+
+      <article class="project featured">
+        <p class="spec">Vision Transformer · fine-tuned · custom art dataset</p>
+        <h3>Art Style Classifier</h3>
+        <p>An image classifier that sorts artworks into styles such as Impressionism and Baroque. I fine-tuned pre-trained Vision Transformers on a custom dataset, using self-attention to pick up visual patterns that traditional CNNs miss.</p>
+        <ul class="tags"><li>ViT</li><li>PyTorch</li><li>Transfer learning</li></ul>
+      </article>
+
+      <article class="project">
+        <p class="spec">6 coins vs. stocks, gold, oil, Treasury yields · IBM internship</p>
+        <h3>Crypto market risk analysis</h3>
+        <p>A Python analysis of cryptocurrencies against traditional assets: volatility, Value at Risk, drawdowns, Sharpe and Sortino ratios, market-cycle phase, and correlation in calm versus stressed markets. Built as my IBM internship deliverable and reviewed by IBM engineers.</p>
+        <ul class="tags"><li>Python</li><li>Pandas</li><li>NumPy</li><li>Matplotlib</li></ul>
+      </article>
+
+      <article class="project">
+        <p class="spec">CNN · MNIST · 28×28 grayscale, 10 classes</p>
+        <h3>Handwritten Digit Detector</h3>
+        <p>A convolutional neural network in Python that recognises handwritten digits from the MNIST dataset with high accuracy.</p>
+        <ul class="tags"><li>Python</li><li>CNN</li><li>TensorFlow / Keras</li></ul>
+      </article>
+
+      <article class="project">
+        <p class="spec">Java Swing · desktop GUI</p>
+        <h3>MP4 Media Player</h3>
+        <p>A working desktop video player with playback controls, volume adjustment and file browsing, behind a simple graphical interface.</p>
+        <ul class="tags"><li>Java</li><li>Swing</li></ul>
+      </article>
+
+      <article class="project">
+        <p class="spec">Responsive sites · client work</p>
+        <h3>Web development portfolio</h3>
+        <p>A set of responsive websites for local and international clients, built with HTML5, CSS3, JavaScript, Bootstrap, PHP and jQuery.</p>
+        <ul class="tags"><li>JavaScript</li><li>PHP</li><li>Bootstrap</li></ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <h2 id="exp-h">Experience</h2>
+    <ol class="timeline">
+      <li>
+        <div class="when">Jun – Jul 2026</div>
+        <div>
+          <h3>Cryptocurrency Market Analysis Intern</h3>
+          <p class="org">IBM</p>
+          <p>Built a crypto market analysis project in Python covering data collection, trend and risk analysis, and visualisation. Reviewed and evaluated by IBM engineers.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">Jun – Jul 2025</div>
+        <div>
+          <h3>Web Development Intern</h3>
+          <p class="org">InfoSoft Web Technologies</p>
+          <p>Developed and hosted responsive websites for local and international clients, with documentation and reporting for each delivery.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">Jun – Jul 2024</div>
+        <div>
+          <h3>E-commerce Intern</h3>
+          <p class="org">Hill-Pure Organic</p>
+          <p>Managed product categories and presentation for the online store, and created product videos and blog articles for the company website.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-h">
+    <h2 id="skills-h">Skills</h2>
+    <div class="skills">
+      <div><h3>Languages</h3><p>Python, Java, C/C++, JavaScript, SQL (MySQL)</p></div>
+      <div><h3>AI / ML</h3><p>PyTorch, TensorFlow, Keras, Scikit-learn, Hugging Face Transformers, LLM evaluation</p></div>
+      <div><h3>Data</h3><p>Pandas, NumPy, Matplotlib, data visualisation</p></div>
+      <div><h3>Web</h3><p>React, HTML5, CSS3, Bootstrap, PHP, jQuery</p></div>
+    </div>
+  </section>
+
+  <section id="education" aria-labelledby="edu-h">
+    <h2 id="edu-h">Education &amp; certifications</h2>
+    <div class="edu">
+      <div>
+        <div class="edu-top">
+          <h3>UPES, Dehradun</h3>
+          <span class="cgpa">Aug 2023 – May 2027 · CGPA 7.97</span>
+        </div>
+        <p class="org" style="color:var(--muted);margin:4px 0 0">B.Tech Computer Science (Artificial Intelligence &amp; Machine Learning)</p>
+      </div>
+      <ul class="certs">
+        <li>Forage job simulations: Software Engineering (JPMorgan Chase &amp; Co.), Advanced Software Engineering (Walmart USA)</li>
+        <li>HackerRank: Software Engineer Intern, Problem Solving (Intermediate), SQL (Advanced), REST API (Intermediate)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Contact</h2>
+    <p>I'm looking for roles in AI/ML and software engineering. The fastest way to reach me is email.</p>
+    <ul class="contact-list">
+      <li><span>Email</span><a href="mailto:Dikshantpargai13@gmail.com">Dikshantpargai13@gmail.com</a></li>
+      <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/dikshant-pargai-616262306">linkedin.com/in/dikshant-pargai-616262306</a></li>
+      <li><span>GitHub</span><a href="https://github.com/Dikshant150">github.com/Dikshant150</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Dikshant Pargai</div>
+</footer>
+
+</body>
+</html>
